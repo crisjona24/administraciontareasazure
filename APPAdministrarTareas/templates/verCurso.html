@@ -1,0 +1,31 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestión de Cursos {% endblock %}
+
+{% block body %}
+<div class="container" style="align-content: center;">
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h1>Informacion del Curso individual</h1>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Creditos</th>
+                        <th colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{cursos.codigo}}</td>
+                        <td>{{cursos.nombre}}</td>
+                        <td>{{cursos.creditos}}</td>
+                        <td><a href="/tareas/listadoCursos/" class="btn btn-info">Atras</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

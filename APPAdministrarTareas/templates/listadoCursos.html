@@ -1,0 +1,59 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestión de Cursos {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-20 col-md-10 col-lg-12 col-xl-12">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong class="text-dark">{{ message }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <h1 style="text-align: center;">Listado de Cursos</h1>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Creditos</th>
+                        <th colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in cursos %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.codigo}}</td>
+                        <td>{{c.nombre}}</td>
+                        <td>{{c.creditos}}</td>
+                        <td><a href="/tareas/edicionCurso/{{c.codigo}}" class="btn btn-info">Editar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="container">
+        <ul class="navbar-nav" style="padding-left: 40%; padding-right: 40%; margin-top: 5%;">
+            <div class="row" colspan="2">
+                <div style="width: 100%; float:left; padding-left: 35%; margin-top: 5%;">
+                    <a href="/tareas/" type="button" class="btn btn-success btn-block text-white">Registrar</a>
+                 </div>
+            </div>
+            <div class="row" colspan="2">
+                <div style="width: 100%; float:left; padding-left: 40%; margin-top: 5%;">
+                    <a href="/tareas/" type="button" class="btn btn-success btn-block text-white">Atras</a>
+                 </div>
+            </div>
+        </ul>
+    </div>
+</div>
+{% endblock %}

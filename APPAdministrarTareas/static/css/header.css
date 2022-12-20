@@ -1,0 +1,166 @@
+*,
+*:before,
+*:after {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	background-color: #f4f4f4;
+}
+
+#cerrarsesion {
+	background-color: #18A0FB;
+	border-color: #18A0FB;
+	align-items: center;
+	border-radius: 8%;
+	padding: 5px;
+}
+
+.menu {
+	background-color: #414141;
+	height: 150px;
+	width: 100vw;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #fff;
+	box-shadow: 5px 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+	color: white;
+	font-size: 25px;
+	padding: 0 80px;
+	font-weight: bold;
+}
+
+.munu_items {
+	display: flex;
+	margin-right: 30px;
+	list-style: none;
+}
+
+.munu_items li {
+	border-radius: 3px;
+	margin: 0 5px;
+}
+
+.munu_items li a {
+	padding: 7px 13px;
+	text-decoration: none;
+	font-size: 15px;
+	display: block;
+	text-transform: uppercase;
+	color: white;
+}
+
+.munu_items li:hover,
+li.active {
+	background-color: rgba(0, 0, 0, .3);
+	transition: 0.4s;
+}
+
+.btn_menu {
+	margin-right: 2%;
+	font-size: 25px;
+	color: white;
+	cursor: pointer;
+	display: none;
+}
+
+ul.show {
+	top: 65px;
+}
+
+@media screen and (max-width: 1075px) {
+	.logo {
+		font-size: 20px;
+		padding-left: 75px;
+	}
+
+	.munu_items li a {
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width: 978px) {
+	.logo {
+		font-size: 18px;
+		padding-left: 35px;
+	}
+
+	.munu_items li a {
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width: 928px) {
+	.logo {
+		font-size: 16px;
+		padding-left: 35px;
+	}
+
+	.munu_items li a {
+		font-size: 8px;
+	}
+}
+
+@media screen and (max-width: 858px) {
+	.menu {
+		height: 65px;
+	}
+
+	.btn_menu {
+		display: inline-flex;
+	}
+
+	.munu_items {
+		position: fixed;
+		width: 100vw;
+		height: calc(100% - 65px);
+		background: #414141;
+		top: -100vh;
+		text-align: center;
+		transition: all .4s;
+		flex-direction: column;
+	}
+
+	.munu_items li {
+		margin: 30px 0 0;
+		line-height: 30px;
+	}
+
+	.munu_items li:hover {
+		background: none;
+	}
+
+	.munu_items li a {
+		font-size: 15px;
+		color: white;
+		font-weight: bold;
+	}
+
+	.munu_items li a:hover {
+		background-color: rgba(0, 0, 0, .3);
+	}
+
+	.logo {
+		font-size: 15px;
+		padding-left: 35px;
+	}
+}
+
+@media screen and (max-width: 850px) and (orientation: landscape) {
+	.munu_items li {
+		margin: 5px 0 0 0;
+	}
+
+	.munu_items {
+		overflow: scroll;
+		height: calc(100% - 65px);
+	}
+}

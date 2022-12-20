@@ -1,0 +1,82 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestión de Carreras {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong class="text-dark">{{ message }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <h2>Gestión de Carreras</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/tareas/registrarCarrera/" method="POST">{% csrf_token %}
+                    <div class="form-group" style="margin-top: 8%;">
+                        <input type="text" id="txtCodigo" name="txtCodigo" class="form-control" placeholder="Código"
+                            minlength="1" maxlength="6" required>
+                    </div>
+                    <div class="form-group" style="margin-top: 8%;" >
+                        <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre"
+                            maxlength="50" required>
+                    </div>
+                    <div class="form-group" style="margin-top: 8%;">
+                        <input type="number" id="txtDuracion" name="txtDuracion" class="form-control" placeholder="Duracion en años" required>
+                    </div>
+                    <div class="form-group" style="margin-top: 8%;" >
+                        <input type="text" id="txtDescrip" name="txtDescrip" class="form-control" placeholder="Descripcion"
+                            maxlength="50" required>
+                    </div>
+                    <div class="form-group" style="margin-top: 8%;">
+                        <button type="submit" class="btn btn-success btn-block text-white">Guardar Carrera</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h1>Listado de Carreras</h1>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Duracion</th>
+                        <th colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in cursos %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.codigoCarrera}}</td>
+                        <td>{{c.nombreCarrera}}</td>
+                        <td>{{c.duracionCarrera}}</td>
+                        <td><a href="/tareas/edicionCarrera/{{c.codigoCarrera}}" class="btn btn-info">Editar</a></td>
+                        <td><a href="/tareas/eliminarCarrera/{{c.codigoCarrera}}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="row" colspan="2">
+            <div style="width: 100%; float:left; padding-left: 10px; margin-top: 0%;">
+                <a href="/tareas/estudianteC/" type="button" class="btn btn-success btn-block text-white">Registrar Estudiantes</a>
+             </div>
+        </div>
+        <br>
+        <div class="row" colspan="2">
+            <div style="width: 100%; float:left; padding-left: 10px; margin-top: 0%;">
+                <a href="/tareas/cursoU/" type="button" class="btn btn-success btn-block text-white">Vamos a los cursos</a>
+             </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

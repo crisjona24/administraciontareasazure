@@ -1,0 +1,43 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestión de Cursos Privados {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2 style="align-items: center; text-align: center;">Edición de Curso</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/tareas/editarCursoC/" method="POST">{% csrf_token %}
+                    <div class="form-group" style="margin-top: 8%;">
+                        <input type="text" id="txtCodigo" name="txtCodigo" class="form-control" placeholder="Código"
+                            minlength="6" maxlength="6" value="{{curso.codigo}}" required>
+                    </div>
+                    <div class="form-group" style="margin-top: 8%;" >
+                        <input type="text" id="txtNombre" name="txtNombre" class="form-control" placeholder="Nombre"
+                            maxlength="50" value="{{curso.nombre}}" required>
+                    </div>
+                    <div class="form-group" style="margin-top: 8%;">
+                        <input type="number" id="numCreditos" name="numCreditos" class="form-control"
+                            value="1" value="{{curso.creditos}}" required>
+                    </div>
+                    <div class="form-group" style="margin-top: 8%;" >
+                        <input type="text" id="docente" name="docente" class="form-control" placeholder="Nombre de docente"
+                            maxlength="50" value="{{curso.docente}}" required>
+                    </div>
+                    <div class="row" colspan="2">
+                        <div style="width: 50%; float:left; padding-left: 40%; margin-top: 5%;">
+                            <button type="submit" class="btn btn-success btn-block text-white">Actualizar</button>
+                         </div>
+                    </div>
+                </form>
+                <div class="row" colspan="2">
+                    <div style="width: 100%; float:left; padding-left: 40%; margin-top: 5%;">
+                        <a href="/tareas/cursoU/" type="button" class="btn btn-success btn-block text-white">Cancelar</a>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

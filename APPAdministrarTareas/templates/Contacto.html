@@ -1,0 +1,39 @@
+{% extends "./base.html" %}
+<body id="bodyContacto">
+  {% block body %}
+  <div class="container">
+    <div class="card-group">
+      <form action="" id="formContacto">
+        <h2 id="Titulocontacto">Contacto</h2>
+        <input
+          type="text"
+          name="Nombre"
+          placeholder="Ingrese sus nombres && apellidos"
+          id="entradaContacto"
+        />
+        <input id="entradaContacto" type="text" name="Correo" placeholder="Ingrese su correo" />
+        <input id="entradaContacto" type="text" name="Telefono" placeholder="Ingrese su telefono" />
+        <textarea
+        id ="entradaText"
+          name="Mensaje"
+          id="Mensaje"
+          placeholder="Escriba aqui su mensaje"
+        ></textarea>
+        <input type="button" value="Enviar" id="botonContacto" />
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="container">
+      <ul class="navbar-nav" style="padding-right: 85%; margin-top: 5%;">
+          <li class="nav-item  card-body">
+            <a class="nav-link btn btn-outline-success" aria-current="page" href="/tareas/"
+              >Vamos a los cursos
+            </a>
+          </li>
+      </ul>
+  </div>
+  </div>
+
+  {% endblock %}
+</body>

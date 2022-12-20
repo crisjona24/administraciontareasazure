@@ -1,0 +1,37 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestión de Materias {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h1>Informacion de Materias</h1>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Horas</th>
+                        <th>Profesor</th>
+                        <th>Creditos</th>
+                        <th colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in cursos %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.nombreM}}</td>
+                        <td>{{c.nroHoras}}</td>
+                        <td>{{c.nombreProfesor}}</td>
+                        <td>{{c.nroCreditos}}</td>
+                        <td><a href="/tareas/listadoMaterias/" class="btn btn-info">Atras</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestión de Estudiantes {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edición de Estudiantes</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/tareas/editarEstudianteC/" method="POST">{% csrf_token %}
+                    <div class="form-group" style="margin-top: 8%">
+                        <input
+                          type="text"
+                          id="txtCodigo"
+                          name="txtCodigo"
+                          class="form-control"
+                          value="{{curso.cedula}}"
+                          placeholder="Cedula"
+                          minlength="10"
+                          maxlength="10"
+                          required
+                        />
+                      </div>
+                      <div class="form-group" style="margin-top: 8%">
+                        <input
+                          type="text"
+                          id="txtApellido1"
+                          name="txtApellido1"
+                          class="form-control"
+                          value="{{curso.apellidoPaterno}}"
+                          placeholder="Apellido Paterno"
+                          maxlength="50"
+                          required
+                        />
+                      </div>
+                      <div class="form-group" style="margin-top: 8%">
+                        <input
+                          type="text"
+                          id="txtApellido2"
+                          name="txtApellido2"
+                          class="form-control"
+                          placeholder="Apellido Materno"
+                          maxlength="50"
+                          value="{{curso.apellidoMaterno}}"
+                          required
+                        />
+                      </div>
+                      <div class="form-group" style="margin-top: 8%">
+                        <input
+                          type="text"
+                          id="txtNombre"
+                          name="txtNombre"
+                          class="form-control"
+                          placeholder="Nombres"
+                          maxlength="50"
+                          value="{{curso.nombresEstudiante}}"
+                          required
+                        />
+                      </div>
+                      <div class="form-group" style="margin-top: 8%">
+                        <input type="date" id="txtFecha" name="txtFecha" value="{{curso.fechaNacimiento}}" />
+                      </div>
+                      <div class="form-group" style="margin-top: 8%">
+                        <select name="sexo" id="sexo">
+                            <option value="">--Escoja el sexo--</option>
+                            <option value="F">F</option>
+                            <option value="M">M</option>
+                        </select>
+                      </div>
+                      <div class="form-group" style="margin-top: 8%">
+                        <input type="text" id="txtCarrera" name="txtCarrera" class="form-control" placeholder="Identificador de la carrera"
+                        maxlength="50" required>
+                      </div>
+                      <div class="row" colspan="2">
+                        <div style="width: 50%; float:left; padding-left: 40%; margin-top: 5%;">
+                            <button type="submit" class="btn btn-success btn-block text-white">Actualizar</button>
+                         </div>
+                    </div>
+                </form>
+                <div class="row" colspan="2">
+                    <div style="width: 100%; float:left; padding-left: 40%; margin-top: 5%;">
+                        <a href="/tareas/estudianteC/" type="button" class="btn btn-success btn-block text-white">Cancelar</a>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
